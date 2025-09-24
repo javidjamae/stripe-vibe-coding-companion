@@ -159,6 +159,40 @@ Notes:
 - The `generated/` directory is git-ignored.
 - The script also appends the README and inserts clear module separators.
 
+---
+
+## Use This Repo As a Git Subtree (Recommended)
+
+If you want to keep this reference close to your app code (and easily pull upstream updates), consider adding it as a Git subtree inside your product repository.
+
+Replace values in angle brackets with your own choices:
+
+- `<REF_REPO_URL>`: The URL of this repo (e.g., `git@github.com:your-org/stripe-vibe-coding-companion.git`)
+- `<PREFIX_PATH>`: Where you want it to live inside your app repo (e.g., `docs/stripe-vibe-coding-companion`)
+- `<BRANCH>`: The branch to track (e.g., `main`)
+
+Add as a subtree:
+```bash
+git remote add stripe-vibe <REF_REPO_URL>
+git fetch stripe-vibe
+git subtree add --prefix=<PREFIX_PATH> stripe-vibe <BRANCH> --squash
+```
+
+Pull upstream updates later:
+```bash
+git fetch stripe-vibe
+git subtree pull --prefix=<PREFIX_PATH> stripe-vibe <BRANCH> --squash
+```
+
+Push your changes back upstream (if you maintain a fork):
+```bash
+git subtree push --prefix=<PREFIX_PATH> stripe-vibe <BRANCH>
+```
+
+Tips:
+- Subtree commits are regular commits inside your app repo; no special tooling needed for consumers.
+- Use `--squash` if you prefer a cleaner history in your app repo.
+
 - **44-common-issues.md** - Common Stripe integration issues and solutions
 - **45-debugging-techniques.md** - Tools and techniques for debugging billing issues
 - **46-data-reconciliation.md** - Keeping your database in sync with Stripe
