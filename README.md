@@ -132,67 +132,6 @@ This isn't just another Stripe tutorial. This course is based on actual producti
 ### **Module 11: Troubleshooting & Operations**
 *Handling real-world issues and edge cases*
 
----
-
-## Generate a Single File or PDF
-
-Use the provided shell script to merge all modules into a single Markdown file. The merged file is ideal for feeding into AI tools that perform best with one large context file.
-
-Requirements:
-- Node.js (for optional PDF generation via md-to-pdf)
-
-Steps:
-1. Run the merge script from the repo root:
-   ```bash
-   ./merge-course.sh
-   ```
-2. The merged Markdown will be created at:
-   ```
-   generated/merged-stripe-course.md
-   ```
-3. (Optional) Convert to PDF:
-   ```bash
-   cd generated && npx md-to-pdf merged-stripe-course.md
-   ```
-
-Notes:
-- The `generated/` directory is git-ignored.
-- The script also appends the README and inserts clear module separators.
-
----
-
-## Use This Repo As a Git Subtree (Recommended)
-
-If you want to keep this reference close to your app code (and easily pull upstream updates), consider adding it as a Git subtree inside your product repository.
-
-Replace values in angle brackets with your own choices:
-
-- `<REF_REPO_URL>`: The URL of this repo (e.g., `git@github.com:your-org/stripe-vibe-coding-companion.git`)
-- `<PREFIX_PATH>`: Where you want it to live inside your app repo (e.g., `docs/stripe-vibe-coding-companion`)
-- `<BRANCH>`: The branch to track (e.g., `main`)
-
-Add as a subtree:
-```bash
-git remote add stripe-vibe <REF_REPO_URL>
-git fetch stripe-vibe
-git subtree add --prefix=<PREFIX_PATH> stripe-vibe <BRANCH> --squash
-```
-
-Pull upstream updates later:
-```bash
-git fetch stripe-vibe
-git subtree pull --prefix=<PREFIX_PATH> stripe-vibe <BRANCH> --squash
-```
-
-Push your changes back upstream (if you maintain a fork):
-```bash
-git subtree push --prefix=<PREFIX_PATH> stripe-vibe <BRANCH>
-```
-
-Tips:
-- Subtree commits are regular commits inside your app repo; no special tooling needed for consumers.
-- Use `--squash` if you prefer a cleaner history in your app repo.
-
 - **44-common-issues.md** - Common Stripe integration issues and solutions
 - **45-debugging-techniques.md** - Tools and techniques for debugging billing issues
 - **46-data-reconciliation.md** - Keeping your database in sync with Stripe
@@ -256,6 +195,62 @@ Before starting, ensure you have:
 - **Best Practices**: Learn from production-tested patterns
 - **Testing Strategies**: Comprehensive test coverage examples
 
----
 
-**Ready to build bulletproof billing systems?** Start with Module 1: Stripe Fundamentals.
+## Generate a Single File or PDF
+
+Use the provided shell script to merge all modules into a single Markdown file. The merged file is ideal for feeding into AI tools that perform best with one large context file.
+
+Requirements:
+- Node.js (for optional PDF generation via md-to-pdf)
+
+Steps:
+1. Run the merge script from the repo root:
+   ```bash
+   ./merge-course.sh
+   ```
+2. The merged Markdown will be created at:
+   ```
+   generated/merged-stripe-course.md
+   ```
+3. (Optional) Convert to PDF:
+   ```bash
+   cd generated && npx md-to-pdf merged-stripe-course.md
+   ```
+
+Notes:
+- The `generated/` directory is git-ignored.
+- The script also appends the README and inserts clear module separators.
+
+
+## Use This Repo As a Git Subtree (Recommended)
+
+If you want to keep this reference close to your app code (and easily pull upstream updates), consider adding it as a Git subtree inside your product repository.
+
+Replace values in angle brackets with your own choices:
+
+- `<REF_REPO_URL>`: The URL of this repo (e.g., `git@github.com:your-org/stripe-vibe-coding-companion.git`)
+- `<PREFIX_PATH>`: Where you want it to live inside your app repo (e.g., `docs/stripe-vibe-coding-companion`)
+- `<BRANCH>`: The branch to track (e.g., `main`)
+
+Add as a subtree:
+```bash
+git remote add stripe-vibe <REF_REPO_URL>
+git fetch stripe-vibe
+git subtree add --prefix=<PREFIX_PATH> stripe-vibe <BRANCH> --squash
+```
+
+Pull upstream updates later:
+```bash
+git fetch stripe-vibe
+git subtree pull --prefix=<PREFIX_PATH> stripe-vibe <BRANCH> --squash
+```
+
+Push your changes back upstream (if you maintain a fork):
+```bash
+git subtree push --prefix=<PREFIX_PATH> stripe-vibe <BRANCH>
+```
+
+Tips:
+- Subtree commits are regular commits inside your app repo; no special tooling needed for consumers.
+- Use `--squash` if you prefer a cleaner history in your app repo.
+
