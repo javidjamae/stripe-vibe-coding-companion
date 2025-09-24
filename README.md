@@ -18,6 +18,8 @@ This is an 800+ page comprehensive reference designed to be fed into your vibe c
 
 You can absolutely read it linearly like a course, but its primary purpose is to act as a complete reference corpus for your AI coding assistant so it can generate accurate, production-quality code and guidance for complex billing scenarios.
 
+This companion was not generated from scratch by an LLM. It was assembled from patterns distilled across multiple production SaaS billing systems that I have personally implemented. I continue to refine and expand it as I build new systems and learn better practices for payments, billing, and plan management. This is not theory; it documents real‑world implementation patterns and practices that work reliably in production.
+
 ## How To Use With Vibe Coding Tools
 
 - Feed the individual Markdown modules (01-*.md, 02-*.md, …) into your AI tool as needed, or
@@ -253,4 +255,20 @@ git subtree push --prefix=<PREFIX_PATH> stripe-vibe <BRANCH>
 Tips:
 - Subtree commits are regular commits inside your app repo; no special tooling needed for consumers.
 - Use `--squash` if you prefer a cleaner history in your app repo.
+
+---
+
+## Contributing
+
+We welcome contributions, feedback, and corrections. If you find gaps, have improvements, or want to add examples:
+
+- Open a GitHub Issue with context, links, and suggested changes
+- Or submit a Pull Request (PR) with a clear description and rationale
+
+Guidelines:
+- Keep modules focused and practical (production-oriented patterns over theory)
+- Include references or examples when proposing new patterns
+- Small fixes (typos/formatting) are welcome as direct PRs
+
+Thanks for helping improve Stripe for SaaS: A Vibe Coding Companion.
 
