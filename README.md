@@ -1,4 +1,4 @@
-# Stripe Implementation Mastery Course
+# Stripe for SaaS: A Vibe Coding Companion
 
 Don't want to build this all yourself? 
 - Check out our SaaS Starter Kit, that has ALL of this implemented already.
@@ -12,11 +12,20 @@ Want to work with us directly?
 - Book a 15-minute discovery call to see if it's a good match
 - [https://calendly.com/javidjamae/15-min-discovery-call](https://calendly.com/javidjamae/15-min-discovery-call)
 
-## Course Overview
+## What This Is
 
-This comprehensive course teaches you how to implement a production-ready Stripe integration for SaaS applications, based on battle-tested patterns from real-world implementations. You'll learn not just the basics, but advanced concepts like complex subscription management, proration handling, scheduled plan changes, and comprehensive testing strategies.
+This is an 800+ page comprehensive reference designed to be fed into your vibe coding tool (Cursor, Copilot, Claude, etc.). It gives your AI assistant ALL the context it needs to implement a production‑ready Stripe integration for SaaS applications.
 
-## What Makes This Course Different
+You can absolutely read it linearly like a course, but its primary purpose is to act as a complete reference corpus for your AI coding assistant so it can generate accurate, production-quality code and guidance for complex billing scenarios.
+
+## How To Use With Vibe Coding Tools
+
+- Feed the individual Markdown modules (01-*.md, 02-*.md, …) into your AI tool as needed, or
+- Generate a single merged Markdown file (and optional PDF) and supply that single artifact to your AI tool.
+
+See “Generate a Single File or PDF” below to create a merged artifact.
+
+## Why This Reference Is Different
 
 This isn't just another Stripe tutorial. This course is based on actual production code that handles:
 - Complex upgrade/downgrade flows with proration
@@ -37,8 +46,8 @@ This isn't just another Stripe tutorial. This course is based on actual producti
 
 ## Course Structure
 
-### **Module 1: Foundation & Architecture** 
-*Understanding the core patterns and architectural decisions*
+### **Module 1: Foundation & Architecture**
+*Core patterns and architectural decisions*
 
 - **01-stripe-fundamentals.md** - Core Stripe concepts, objects, and relationships
 - **02-environment-setup.md** - Environment variables, test vs live mode, and security
@@ -62,7 +71,7 @@ This isn't just another Stripe tutorial. This course is based on actual producti
 - **12-feature-gating.md** - Implementing plan-based feature access
 
 ### **Module 4: Advanced Subscription Management**
-*The complex world of upgrades, downgrades, and proration*
+*Upgrades, downgrades, and proration*
 
 - **13-upgrade-flows.md** - Immediate upgrades with proration handling
 - **14-downgrade-flows.md** - Scheduled downgrades and end-of-period changes
@@ -71,7 +80,7 @@ This isn't just another Stripe tutorial. This course is based on actual producti
 - **17-scheduled-changes.md** - Managing complex scheduled plan changes
 
 ### **Module 5: Billing Intervals & Complex Flows**
-*Mastering annual billing and complex upgrade scenarios*
+*Annual billing and complex upgrade scenarios*
 
 - **18-annual-billing.md** - Implementing annual billing with proper discounting
 - **19-mixed-upgrades.md** - Complex scenarios like "Pro Annual → Scale Monthly"
@@ -79,7 +88,7 @@ This isn't just another Stripe tutorial. This course is based on actual producti
 - **21-subscription-schedules.md** - Using Stripe Subscription Schedules effectively
 
 ### **Module 6: Customer Experience**
-*Building seamless customer-facing billing interfaces*
+*Customer-facing billing interfaces*
 
 - **22-customer-portal.md** - Stripe Customer Portal vs custom interfaces
 - **23-billing-dashboards.md** - Building comprehensive billing dashboards
@@ -87,7 +96,7 @@ This isn't just another Stripe tutorial. This course is based on actual producti
 - **25-payment-methods.md** - Managing payment methods and failed payments
 
 ### **Module 7: Webhook Mastery**
-*Building bulletproof webhook handling*
+*Bulletproof webhook handling*
 
 - **26-webhook-security.md** - Advanced signature verification and security
 - **27-webhook-reliability.md** - Idempotency, retries, and error handling
@@ -122,6 +131,33 @@ This isn't just another Stripe tutorial. This course is based on actual producti
 
 ### **Module 11: Troubleshooting & Operations**
 *Handling real-world issues and edge cases*
+
+---
+
+## Generate a Single File or PDF
+
+Use the provided shell script to merge all modules into a single Markdown file. The merged file is ideal for feeding into AI tools that perform best with one large context file.
+
+Requirements:
+- Node.js (for optional PDF generation via md-to-pdf)
+
+Steps:
+1. Run the merge script from the repo root:
+   ```bash
+   ./merge-course.sh
+   ```
+2. The merged Markdown will be created at:
+   ```
+   generated/merged-stripe-course.md
+   ```
+3. (Optional) Convert to PDF:
+   ```bash
+   cd generated && npx md-to-pdf merged-stripe-course.md
+   ```
+
+Notes:
+- The `generated/` directory is git-ignored.
+- The script also appends the README and inserts clear module separators.
 
 - **44-common-issues.md** - Common Stripe integration issues and solutions
 - **45-debugging-techniques.md** - Tools and techniques for debugging billing issues
